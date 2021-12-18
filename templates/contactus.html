@@ -1,0 +1,90 @@
+{% extends "layout.html" %} {% block title %} Index {% endblock %} {% block main %}
+<main class="index_machete">
+    <div class="cont">
+        <h3>Contact us</h3>
+        <!-- Just here i use "url_for" to call the function get_contact.
+         This function return the html code of our contact page-->
+        <form action="{{ url_for('get_contact') }}" method=post>
+            <div>
+                <!-- name forms -->
+                <p>
+                    {{ form.name.label }} <br> {{ form.name(placeholder='Nombre') }}
+                </p>
+                <!-- email forms -->
+                <p>
+                    {{ form.email.label }} <br> {{ form.email(placeholder='e-mail') }}
+                </p>
+                <!-- Subject of your request -->
+                <p>
+                    {{ form.subject.label }}<br> {{form.subject(placeholder='Asunto')}}
+                </p>
+                <!-- Content of your request -->
+                <p>
+                    {{ form.message.label }}<br> {{ form.message(placeholder='Escribe tu consulta') }}
+                </p>
+                <!-- Submit button -->
+                <p>
+                    {{ form.submit(class="button") }}
+                </p>
+            </div>
+        </form>
+    </div>
+
+
+    {% if session.user_id %}
+    <div class="content-2">
+        <div class="contenedor ">
+            <div class="description terceros ">
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Alias tempora obcaecati, quo recusandae perferendis expedita.</p>
+            </div>
+        </div>
+        <hr>
+        <div class="contenedor ">
+            <div class="description terceros ">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum, ipsa?</p>
+            </div>
+        </div>
+        <hr>
+        <div class="contenedor ">
+            <div class="description terceros ">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero id illo repudiandae delectus?</p>
+            </div>
+        </div>
+    </div>
+    {%else%}
+
+    <div class="content-2">
+        <form action="/login" method="post">
+            <div class="form-group">
+                <input autocomplete="off" autofocus class="form-control" name="username" placeholder="Username" type="text">
+            </div>
+            <div class="form-group">
+                <input class="form-control" name="password" placeholder="Password" type="password">
+            </div>
+            <button class="log" type="submit">Log In</button>
+        </form>
+
+
+
+        <form action="/register" method="post">
+            <div class="form-group">
+                <input autocomplete="off" autofocus class="form-control" name="username" placeholder="Username" type="text">
+            </div>
+            <div class="form-group">
+                <input autocomplete=off class="form-control" name="password" placeholder="Password" type="password">
+            </div>
+            <div class="form-group">
+                <input autocomplete=off class="form-control" name="confirmation" placeholder="Confirm Password" type="password">
+            </div>
+            <button class="log" type="submit">Register</button>
+        </form>
+    </div>
+
+
+
+    {%endif%}
+
+
+</main>
+
+{%endblock%}

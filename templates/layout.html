@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/styles.css">
+    <link rel="shortcut icon" href="static/images/machetes.svg">
+
+    <title> Machetes: {% block title %}{% endblock %} </title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="navigator">
+            <img class="logo" src="{{ url_for('static', filename='images/machetes.svg')}}" alt="logo">
+            <a href="/">
+                <h1 class="blanco">MACHETES</h1>
+            </a>
+            <nav>
+                {% if session.user_id %}
+                <ul class="nav_links">
+                    <li><a href="/">Home</a></li>
+                    <!-- <li><a href="/inicio">Inicio</a></li>
+                    <li><a href="# ">About</a></li> -->
+                    <li><a class="nav-link" href="/logout">Log Out</a></li>
+                </ul>
+                {%else%}
+                <ul class="nav_links">
+                    <li><a href="/">Home</a></li>
+                    <!-- <li><a href="/inicio">Inicio</a></li> -->
+                    <!-- <li><a class="nav-link" href="/login">Log in</a></li>
+                    <li><a class="nav-link" href="/register">Register</a></li> -->
+                </ul>
+                {%endif%}
+
+            </nav>
+
+            <a href="/contactus"><button>Contacto</button></a>
+
+        </div>
+
+
+        <header>
+            <div class="alert" role="alert">
+                {% if get_flashed_messages() %} {{ get_flashed_messages() | join(" ") }} {%else%} Estás logueade {% endif %}
+            </div>
+        </header>
+
+
+
+
+
+
+
+
+        {% block main %} {% endblock %}
+
+
+        <footer>
+            <p class="mb-1">&copy;2021 MACHETES</p>
+        </footer>
+
+
+    </div>
+
+
+
+</body>
+
+</html>

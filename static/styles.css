@@ -1,0 +1,354 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+@font-face {
+    font-family: 'GeoSlab703';
+    src: url('font/GeoSlab703\ Md\ BT\ Bold.ttf') format('truetype');
+    font-style: normal;
+    font-weight: normal;
+}
+
+* {
+    font-family: "Monserrat", sans-serif;
+    font-weight: 500;
+}
+
+table,
+th,
+td {
+    border: 1px solid black;
+}
+
+body {
+    /*background-image: url(images/foto3d.jpg);*/
+    background-color: rgb(221, 206, 195);
+    background-blend-mode: darken;
+    background-size: contain;
+}
+
+.cont {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    align-items: center;
+    justify-content: center;
+    background-color: #7499be;
+    text-align: center;
+}
+
+input {
+    width: 20rem;
+    height: 2rem;
+}
+
+.text {
+    height: 10rem;
+}
+
+.boton {
+    width: 4rem;
+}
+
+li,
+a,
+button,
+input#submit.button,
+.alert {
+    font-family: "Monserrat", sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    color: #edf0f1;
+    text-decoration: none;
+}
+
+input#submit.button {
+    width: 50%;
+}
+
+.navigator {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    grid-area: navigator;
+    background-color: rgb(49, 60, 71);
+    padding-right: 1rem;
+    height: fit-content;
+    /*clip-path: polygon(0 39%, 0 0, 27% 0, 27% 27%, 100% 27%, 100% 72%, 27% 72%, 27% 100%, 0 100%, 0 66%);*/
+}
+
+.logo {
+    cursor: pointer;
+    background-color: white;
+    border-radius: 20px;
+    height: 10rem;
+    margin: 2rem;
+    /*position: relative;
+    animation-name: animacion;
+    animation-duration: 4s;
+    animation-delay: 5ms;
+    left: 4.5%;*/
+}
+
+.logo:hover {
+    height: 11rem;
+}
+
+.nav_links li {
+    display: inline-block;
+    padding: 0px 20px;
+    position: relative;
+}
+
+.blanco {
+    font-family: "GeoSlab703";
+    color: #edf0f1;
+    transition: all .3s ease 1ms;
+    cursor: pointer;
+    padding: 10px 10px;
+}
+
+.blanco:hover {
+    color: #8f95b6;
+}
+
+.nav_links li a {
+    transition: all 0.3s ease 0s;
+}
+
+.nav_links li a:hover {
+    color: #8f95b6;
+}
+
+button,
+input#submit.button {
+    padding: 10px 10px;
+    background-color: rgba(0, 136, 169, 1);
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all .5s ease 0s;
+}
+
+button.log {
+    width: 70%;
+    padding: .5rem;
+}
+
+button:hover,
+input#submit.button {
+    background-color: rgba(0, 136, 169, .8);
+}
+
+main {
+    grid-area: main;
+}
+
+.container {
+    display: grid;
+    grid-template-rows: .1fr .1fr 2fr .3fr;
+    grid-template-areas: "navigator" "header" "main" "footer";
+    grid-gap: 2rem;
+    padding: 1rem;
+    margin: 1rem;
+}
+
+main.index_machete {
+    display: grid;
+    grid-template-columns: 4fr 1fr;
+    grid-template-areas: "recuadro content-2" "content-1 content-2";
+    grid-gap: 1rem;
+}
+
+.recuadro.inicio,
+.content-1.inicio {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
+    text-align: center;
+}
+
+.thumb {
+    max-width: 50%;
+    align-items: center;
+    justify-content: center;
+}
+
+.description {
+    display: flex;
+    font-family: "Monserrat", sans-serif;
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 1rem;
+}
+
+.title {
+    color: white
+}
+
+.log_admin {
+    width: 1rem;
+    height: 1rem;
+    margin: auto;
+}
+
+.titulo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.terceros {
+    background-color: rgb(118, 154, 156);
+    height: 10rem;
+    margin: .5rem;
+}
+
+.form-group {
+    display: block;
+    align-items: center;
+    align-content: center;
+    padding: 1rem;
+    margin-right: 1rem;
+}
+
+.form-control {
+    display: block;
+    width: 100%;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    background-color: #fff;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out
+}
+
+.recuadro {
+    grid-area: recuadro;
+    background-color: #bfc9f3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: fit-content;
+}
+
+.recuadro :hover {
+    background-color: #dbe4ec;
+    border-radius: 1rem;
+}
+
+.content-1 {
+    grid-area: content-1;
+    background-color: #bfc9f3;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    /*display: flex;
+    justify-content: center;
+    
+    padding-top: 3rem;*/
+}
+
+.content-2 {
+    grid-area: content-2;
+    height: 100%;
+    width: 100%;
+    margin: auto;
+    align-items: center;
+    text-align: center;
+}
+
+.log {
+    width: 6rem;
+    margin: auto;
+}
+
+.imagen {
+    width: 80%;
+    height: auto;
+    padding: 1rem;
+}
+
+.com {
+    overflow-wrap: break-word;
+}
+
+.comentarios {
+    /* display: flex;
+    flex-direction: column-reverse; */
+    width: 80%;
+    height: 40rem;
+    background-color: #8f95b6;
+    padding: 1rem;
+    overflow-y: scroll;
+}
+
+.com {
+    display: inline-block;
+    word-break: break-word;
+    width: 95%;
+}
+
+.espacio-comentario {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: 100%;
+    height: 2rem;
+}
+
+footer {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    grid-area: footer;
+    background-color: rgb(49, 60, 71);
+    color: white;
+    text-align: center;
+}
+
+header {
+    grid-area: header;
+    text-align: center;
+}
+
+.alert {
+    display: flex;
+    background-color: #7499be;
+    height: 3rem;
+    justify-content: center;
+    align-items: center;
+    animation-name: animacion;
+    animation-duration: 1s;
+    animation-delay: 5ms
+}
+
+@keyframes animacion {
+    0% {}
+    90% {}
+    50% {
+        font-size: 300%;
+    }
+    95% {}
+    97% {}
+    100% {}
+}
+
+
+/* @media only screen and (max-width:1024px) {
+    .container {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 2fr 2fr 1fr;
+        grid-template-areas: "header header" "content-0 content-1" "content-2 content-3" "content-4 content-5""content-6 content-7""footer footer";
+    }
+}
+
+@media only screen and (max-width:450px) {
+    .container {
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 2fr 2fr 2fr 2fr 1fr;
+        grid-template-areas: "header" "content-0" "content-1" "content-2" "content-3" "content-4" "content-5""content-6""content-7" "footer";
+    }
+} */

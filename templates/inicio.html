@@ -1,0 +1,81 @@
+{% extends "layout.html" %} {% block title %} inicio {% endblock %} {% block main %}
+
+
+
+<main class="index_machete">
+    <div class="recuadro">
+        <h2>{{titulo}}</h2>
+        <img src={{ruta}} alt="" class="imagen">
+    </div>
+    <div class="content-1">
+        <div class="description">
+            <h3 class="title">Comentarios</h3>
+            <div class="comentarios">
+                {% for dic in comentarios%}
+                <label><h3>{{dic['user_name'] + " "}} </h3> <small>{{datetime_format(dic['date'])}}</small> </label>
+                <hr>
+                <fieldset class="com">{{dic['body']}}</fieldset>
+                <hr> {%endfor%} {% if session.user_id %}
+                <form action="/inicio/{{inicio_id}}" method="POST">
+                    <div class="form-group">
+                        <h5 style="text-align: center;"> ¿Qué tenés en mente {{name}}?</h5>
+                        <input autocomplete="off" class="espacio-comentario" name="comentarios" placeholder="Tus Comentarios" type="text ">
+                    </div>
+
+                    <button type="submit">Post</button>
+                </form>
+                {%else%}
+                <h2 style="text-align: center;"> Para comentar es necesario estar logueade</h2> {%endif%}
+            </div>
+        </div>
+
+    </div>
+    {% if session.user_id %}
+    <div class="content-2">
+        <div class="contenedor ">{% for lista in restos %}
+            <div class="titulo">
+                <h5>{{lista[1]}}</h5>
+                <a href={{ "/inicio/" + lista[2] }}><img class="thumb " src={{lista[0]}} alt=" "></a>
+
+            </div>{%endfor%}
+        </div>
+        <hr>
+    </div>
+    {%else%}
+
+    <div class="content-2 ">
+        <form action="/login " method="POST">
+            <div class="form-group ">
+                <input autocomplete="off " autofocus class="form-control " name="username " placeholder="Username " type="text ">
+            </div>
+            <div class="form-group ">
+                <input class="form-control " name="password " placeholder="Password " type="password ">
+            </div>
+            <button class="log " type="submit ">Log In</button>
+        </form>
+
+
+
+        <form action="/register " method="POST">
+            <div class="form-group ">
+                <input autocomplete="off " autofocus class="form-control " name="username " placeholder="Username " type="text ">
+            </div>
+            <div class="form-group ">
+                <input autocomplete=off class="form-control " name="password " placeholder="Password " type="password ">
+            </div>
+            <div class="form-group ">
+                <input autocomplete=off class="form-control " name="confirmation " placeholder="Confirm Password " type="password ">
+            </div>
+            <button class="log " type="submit ">Register</button>
+        </form>
+    </div>
+
+
+
+    {%endif%}
+
+
+
+</main>
+
+{%endblock%}

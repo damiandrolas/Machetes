@@ -1,0 +1,52 @@
+{% extends "layout.html" %} {% block title %} Log In {% endblock %} {% block main %}
+
+<main class="index_machete">
+    {% if admin %}
+    <div class="recuadro">
+        <h2>Mensajes</h2>
+        <div class="recuadro_inicio">
+
+
+            <table>
+                <tr>
+                    <th>Fecha</th>
+                    <th>Nombre</th>
+                    <th>Email</th>
+                    <th>Asunto</th>
+                    <th>Mensaje</th>
+                </tr>{% for dic in mensajes %}
+                <tr>
+                    <td>{{ datetime_format(dic["date"])}}</td>
+                    <td>{{ dic["nombre"]}}</td>
+                    <td>{{ dic["email"]}}</td>
+                    <td>{{ dic["asunto"]}}</td>
+                    <td>{{ dic["mensaje"]}}</td>
+
+                </tr>{% endfor %}
+            </table>
+        </div>
+
+    </div>
+
+    {% endif %}
+
+
+    <div class="content-2">
+        <div style="background-color: rgb(179, 188, 231);">
+            <h5>Admin Log-in = {{admin}} </h5>
+        </div>
+        <form action="/admin" method="post">
+            <h2>Log-in Admin</h2>
+            <div class="form-group">
+                <input class="form-control" name="password" placeholder="Password" type="password">
+            </div>
+            <button class="log-admin" type="submit">Log In Admin</button>
+        </form>
+        <hr>
+        <button class="log-admin"><a href="/logout_admin">Log Out Admin</a></button>
+        <hr>
+
+    </div>
+</main>
+
+{% endblock %}

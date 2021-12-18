@@ -1,0 +1,100 @@
+{% extends "layout.html" %} {% block title %} Index {% endblock %} {% block main %}
+<main class="index_machete">
+    <div class="recuadro inicio">
+        <div class="recuadro_inicio">
+            <h3 class="titulo"> Análisis Sintáctico </h3>
+            <a href="/inicio/1" id="1"><img class="thumb" id="1" src="static/images/analisis sintactico.jpg" alt="Analisi sintactico"></a>
+        </div>
+        <div class="recuadro_inicio">
+            <h3 class="titulo"> Verbos </h3>
+            <a href="/inicio/2" id="2"><img class="thumb" id="2" src="static/images/verbos.jpg" alt="Verbos">
+            </a>
+        </div>
+
+        <div class="recuadro_inicio">
+            <h3 class="titulo"> Aparato Reproductor Femenino </h3>
+            <a href="/inicio/3" id="3"><img class="thumb" id="3" src="static/images/aparato femenino.jpg" alt="Aparato reproductor femenino"></a>
+        </div>
+
+        <div class="recuadro_inicio">
+            <h3 class="titulo"> Aparato Reproductor Masculino </h3>
+            <a href="/inicio/4" id="4"><img class="thumb" id="4" src="static/images/masculino.jpg" alt=""></a>
+        </div>
+    </div>
+    <div class="content-1 inicio" style="display: none;">
+        <!-- <div class="recuadro_inicio">
+            <h3 class="titulo"> Machete </h3>
+            <a href="/inicio_5"><img class="thumb" src="static/images/IMG-20210801-WA0001.jpg" alt=""></a>
+        </div>
+        <div class="recuadro_inicio ">
+            <h3 class="titulo"> Machete </h3>
+            <a href="/inicio_6"><img class="thumb" src="static/images/IMG-20210801-WA0001.jpg" alt=""></a>
+        </div>
+        <div class="recuadro_inicio ">
+            <h3 class="titulo"> Machete </h3>
+            <a href="/inicio_7"><img class="thumb" src="static/images/IMG-20210801-WA0001.jpg" alt=""></a>
+        </div>
+        <div class="recuadro_inicio ">
+            <h3 class="titulo"> Machete </h3>
+            <a href="/inicio_8"><img class="thumb" src="static/images/IMG-20210801-WA0001.jpg" alt=""></a>
+        </div> -->
+    </div>
+    {% if session.user_id %}
+    <div class="content-2">
+        <div id="content-2" class="content-2">
+            <div class="contenedor ">
+                <div class="description terceros ">
+                    <img class="logo" src="{{ url_for('static', filename='images/machetes.svg')}}" alt="logo">
+
+                </div>
+            </div>
+            <hr>
+            <div class="contenedor ">
+                <div class="description terceros ">
+                    <img class="logo" src="{{ url_for('static', filename='images/machetes.svg')}}" alt="logo">
+                </div>
+            </div>
+            <hr>
+            <div class="contenedor ">
+                <div class="description terceros ">
+                    <img class="logo" src="{{ url_for('static', filename='images/machetes.svg')}}" alt="logo">
+                </div>
+            </div>
+        </div>
+    </div>
+    {%else%}
+
+    <div class="content-2">
+        <form action="/login" method="post">
+            <div class="form-group">
+                <input autocomplete="off" autofocus class="form-control" name="username" placeholder="Username" type="text">
+            </div>
+            <div class="form-group">
+                <input class="form-control" name="password" placeholder="Password" type="password">
+            </div>
+            <button class="log" type="submit">Log In</button>
+        </form>
+
+
+
+        <form action="/register" method="post">
+            <div class="form-group">
+                <input autocomplete="off" autofocus class="form-control" name="username" placeholder="Username" type="text">
+            </div>
+            <div class="form-group">
+                <input autocomplete=off class="form-control" name="password" placeholder="Password" type="password">
+            </div>
+            <div class="form-group">
+                <input autocomplete=off class="form-control" name="confirmation" placeholder="Confirm Password" type="password">
+            </div>
+            <button class="log" type="submit">Register</button>
+        </form>
+    </div>
+
+
+
+    {%endif%}
+
+</main>
+
+{%endblock%}
